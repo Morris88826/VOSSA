@@ -1,5 +1,6 @@
 # VOSSA: Voiceprint Optimization for Streaming Speech Architectures (Interspeech 2026)
 
+<a href="#"><img src="https://img.shields.io/badge/arXiv-coming%20soon-%23B31B1B"></a>
 <a href="https://morris88826.github.io/VOSSA/"><img src="https://img.shields.io/badge/Demo%20Page-online-brightgreen"></a>
 <br>
 
