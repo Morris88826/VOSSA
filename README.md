@@ -13,7 +13,8 @@ by [Mu-Ruei Tseng](https://github.com/Morris88826), [Waris Quamer](https://githu
 Department of Computer Science & Engineering, Texas A&M University
 
 ## News
-**2026:** VOSSA accepted at Interspeech 2026.
+**Sep. 2026:** VOSSA shortlisted for the Interspeech 2026 Best Student Paper Award (see [here](https://interspeech2026.org/en-AU/pages/program/best-student-papers)).
+**Jun. 2026:** VOSSA accepted at Interspeech 2026.
 
 ## Introduction
 
