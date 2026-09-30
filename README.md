@@ -38,5 +38,14 @@ For more information, please check out our [Demo Page](https://morris88826.githu
 Source code coming soon.
 
 ## Citation
-
-BibTeX will be available upon official publication at Interspeech 2026.
+```
+@inproceedings{tseng26c_interspeech,
+  title     = {{VOSSA: Voiceprint Optimization for Streaming Speech Architectures}},
+  author    = {Mu-Ruei Tseng and Waris Quamer and Ghady Nasrallah and Ricardo Gutierrez-Osuna},
+  year      = {2026},
+  booktitle = {{Interspeech 2026}},
+  pages     = {4716--4720},
+  doi       = {10.21437/Interspeech.2026-2763},
+  issn      = {2958-1796},
+}
+```
