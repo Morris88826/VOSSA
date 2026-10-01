@@ -1,6 +1,8 @@
 # VOSSA: Voiceprint Optimization for Streaming Speech Architectures (Interspeech 2026)
 
-<a href="#"><img src="https://img.shields.io/badge/arXiv-coming%20soon-%23B31B1B"></a>
+<a href="https://arxiv.org/abs/2609.38887">
+  <img src="https://img.shields.io/badge/arXiv-2609.38887-%23B31B1B">
+</a>
 <a href="https://morris88826.github.io/VOSSA/"><img src="https://img.shields.io/badge/Demo%20Page-online-brightgreen"></a>
 <br>
 
@@ -13,7 +15,7 @@ by [Mu-Ruei Tseng](https://github.com/Morris88826), [Waris Quamer](https://githu
 Department of Computer Science & Engineering, Texas A&M University
 
 ## News
-**Sep. 2026:** VOSSA shortlisted for the Interspeech 2026 Best Student Paper Award (see [here](https://interspeech2026.org/en-AU/pages/program/best-student-papers)).
+**Sep. 2026:** VOSSA shortlisted for the Interspeech 2026 Best Student Paper Award.
 
 **Jun. 2026:** VOSSA accepted at Interspeech 2026.
 
