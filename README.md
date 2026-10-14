@@ -19,6 +19,7 @@ Department of Computer Science & Engineering, Texas A&M University
 
 ## News
 **Oct. 2026:** Released the latest version of VOSSA code and pretrained checkpoints.
+
 **Sep. 2026:** VOSSA received the Best Student Paper Award at Interspeech 2026.
 
 **Jun. 2026:** VOSSA accepted at Interspeech 2026.
