@@ -21,7 +21,7 @@ Department of Computer Science & Engineering, Texas A&M University
 
 ## Introduction
 
-![Architecture](demo/public/figures/architecture.png)
+![Architecture](figures/architecture.png)
 
 Real-time voice conversion (VC) systems commonly rely on pretrained speaker embeddings from automatic speaker verification (ASV) models. While effective for speaker discrimination, these embeddings are trained to remain stable across phonetic and prosodic variations within-speaker, which may conflict with frame-level acoustic generation in streaming constraints. To address this issue, we propose VOSSA, a speaker representation framework that extracts speaker information from intermediate content encoder layers and aggregates using attentive statistics pooling. The embedding is trained jointly with VC objectives, removing the need for a separate speaker encoder.
 
