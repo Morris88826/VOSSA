@@ -76,8 +76,8 @@ hf download morris88826/VOSSA --local-dir checkpoints
 
 ### Inference
 
-- `notebooks/inference.ipynb`: offline (whole-utterance) conversion and normalized speaker similarity.
-- `notebooks/inference_streaming.ipynb`: chunk-by-chunk streaming conversion, with latency and real-time factor.
+- [notebooks/inference.ipynb](./notebooks/inference.ipynb): offline (whole-utterance) conversion and normalized speaker similarity.
+- [notebooks/inference_streaming.ipynb](./notebooks/inference_streaming.ipynb): chunk-by-chunk streaming conversion, with latency and real-time factor.
 
 Streaming in a few lines:
 
