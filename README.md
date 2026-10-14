@@ -3,6 +3,9 @@
 <a href="https://arxiv.org/abs/2609.38887">
   <img src="https://img.shields.io/badge/arXiv-2609.38887-%23B31B1B">
 </a>
+<a href="https://huggingface.co/Morris88826/vossa">
+  <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-FFD21E">
+</a>
 <a href="https://morris88826.github.io/VOSSA/"><img src="https://img.shields.io/badge/Demo%20Page-online-brightgreen"></a>
 <br>
 
@@ -15,6 +18,7 @@ by [Mu-Ruei Tseng](https://github.com/Morris88826), [Waris Quamer](https://githu
 Department of Computer Science & Engineering, Texas A&M University
 
 ## News
+**Oct. 2026:** Released the latest version of VOSSA code and pretrained checkpoints.
 **Sep. 2026:** VOSSA received the Best Student Paper Award at Interspeech 2026.
 
 **Jun. 2026:** VOSSA accepted at Interspeech 2026.
@@ -116,3 +120,11 @@ The content encoder and vocoder are loaded from `checkpoints/` (see [Pretrained 
   issn      = {2958-1796},
 }
 ```
+
+## License
+
+VOSSA's source code and pretrained weights are released under the [CC BY-NC 4.0](LICENSE) license (non-commercial use only).
+
+VOSSA builds on the code of TVTSyn (W. Quamer, M.-R. Tseng, G. Nasrallah, and R. Gutierrez-Osuna, "TVTSyn: Content-synchronous time-varying timbre for streaming voice conversion and anonymization," ICLR 2026), which is also released under CC BY-NC 4.0.
+
+Third-party components retain their existing licenses and file-level copyright and attribution notices, including Kyutai/Mimi, Meta/Audiocraft, Amphion, the Lightning template, Descript audiotools, timm, and fish-diffusion. This license does not replace the licenses of those components, datasets, or external weights.
