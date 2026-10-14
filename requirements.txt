@@ -1,0 +1,29 @@
+# Tested with Python 3.10 and CUDA 12.8. Install PyTorch first for your CUDA version,
+# e.g. pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu128
+torch==2.8.0
+torchaudio==2.8.0
+
+# Model and inference
+einops==0.8.2
+numpy==2.2.6
+librosa==0.11.0
+soxr==1.1.0
+huggingface_hub==1.22.0
+
+# Training (PyTorch Lightning CLI)
+pytorch-lightning==2.6.5
+torchmetrics==1.9.0
+jsonargparse[signatures]==4.49.0
+pyrootutils==1.0.4
+python-dotenv==1.2.4
+descript-audiotools==0.7.4
+speechbrain==1.1.0
+scikit-learn==1.7.2
+pandas==2.3.3
+joblib==1.5.3
+wandb==0.28.0
+
+# Notebooks and utilities
+ipython==8.12.3
+matplotlib==3.10.9
+debugpy==1.8.21  # only used when running src/main.py with DEBUG=1

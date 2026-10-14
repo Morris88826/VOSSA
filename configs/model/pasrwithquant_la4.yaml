@@ -1,0 +1,87 @@
+model:
+  class_path: modules.PasrWithQuantModule
+  init_args:
+    seanet_args:
+      channels: 1
+      dimension: 512
+      causal: true
+      n_filters: 64
+      n_residual_layers: 1
+      activation: "ELU"
+      compress: 2
+      dilation_base: 2
+      disable_norm_outer_blocks: 0
+      kernel_size: 7
+      residual_kernel_size: 3
+      last_kernel_size: 3
+      norm: "none"
+      pad_mode: "constant"
+      ratios: [8, 5, 4, 2]
+      true_skip: true
+      look_ahead: false
+      look_ahead_size: 0
+    transformer_args:
+      d_model: 512
+      num_heads: 8
+      num_layers: 8
+      causal: true
+      layer_scale: 0.01
+      context: 100
+      right_context: 4
+      conv_layout: true
+      max_period: 10000
+      gating: "none"
+      norm: "layer_norm"
+      positional_embedding: "rope"
+      dim_feedforward: 2048
+      input_dimension: 512
+      output_dimensions: [512]
+    quantizer_args:
+      input_dim: 512
+      codebook_size: 4096
+      codebook_dim: 8
+      commitment: 0.15
+      codebook_loss_weight: 1.0
+      use_l2_normlize: true
+    sample_rate: 16000
+    frame_rate: 50
+    num_codes: 200
+    encoder_dim: 512
+# https://pytorch.org/docs/stable/optim.html
+optimizer:
+  class_path: AdamW
+  init_args:
+    lr: 5e-4
+    weight_decay: 1e-6
+# https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+lr_scheduler:
+  class_path: ReduceLROnPlateau
+  init_args:
+    monitor: val/loss
+    mode: min
+    factor: 0.1
+    patience: 3
+    # verbose: True
+    threshold: 0.0001
+    threshold_mode: rel
+    cooldown: 0
+    min_lr: 0.00001
+    eps: 1e-08
+trainer:
+  # Train, Validate, Test and Predict
+  # Device https://lightning.ai/docs/pytorch/stable/common/trainer.html#accelerator
+  accelerator: gpu # "cpu", "gpu", "tpu", "ipu", "auto"
+  devices: "0," # "2," for device id 2
+  num_nodes: 1 # https://lightning.ai/docs/pytorch/stable/common/trainer.html#num-nodes
+  max_epochs: 100
+  callbacks:
+    # https://lightning.ai/docs/pytorch/latest/api/lightning.pytorch.callbacks.ModelCheckpoint.html#lightning.pytorch.callbacks.ModelCheckpoint
+    - class_path: ModelCheckpoint
+      init_args:
+        filename: epoch={epoch:02d}-val_acc={val/acc:.4f}
+        monitor: val/acc
+        verbose: true
+        save_last: true
+        save_top_k: 2
+        mode: max
+        auto_insert_metric_name: false

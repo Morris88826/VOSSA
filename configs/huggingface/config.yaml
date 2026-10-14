@@ -1,0 +1,6 @@
+# Uploaded to the root of the Hugging Face Hub repo. src/pretrained.py reads it to find the
+# checkpoints, and the Hub counts each request for it as one model download.
+checkpoint: vossa_epoch=52-val_loss=0.6670.ckpt   # VOSSA (includes content encoder and vocoder weights)
+vocoder: mimivocoder.ckpt                         # needed to build the vocoder before loading weights
+content_encoder: mimi_pasrv2_withquant_la4.ckpt   # training only
+sample_rate: 16000

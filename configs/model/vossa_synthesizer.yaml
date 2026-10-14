@@ -1,0 +1,112 @@
+model:
+  class_path: modules.VOSSASynthesizer
+  init_args:
+    seanet_args:
+      channels: 1
+      dimension: 512
+      causal: true
+      n_filters: 64
+      n_residual_layers: 1
+      activation: "ELU"
+      compress: 2
+      dilation_base: 2
+      disable_norm_outer_blocks: 0
+      kernel_size: 7
+      residual_kernel_size: 3
+      last_kernel_size: 3
+      norm: "none"
+      pad_mode: "constant"
+      ratios: [8, 5, 4, 2]
+      true_skip: true
+      look_ahead: false
+      look_ahead_size: 0
+    transformer_args:
+      d_model: 512
+      num_heads: 8
+      num_layers: 8
+      causal: true
+      layer_scale: 0.01
+      context: 100
+      right_context: 4
+      conv_layout: true
+      max_period: 10000
+      gating: "none"
+      norm: "layer_norm"
+      positional_embedding: "rope"
+      dim_feedforward: 2048
+      input_dimension: 512
+      output_dimensions: [512]
+    quantizer_args:
+      input_dim: 512
+      codebook_size: 4096
+      codebook_dim: 8
+      commitment: 0.15
+      codebook_loss_weight: 1.0
+      use_l2_normlize: true
+    sample_rate: 16000
+    frame_rate: 50
+    num_codes: 200
+    encoder_dim: 512
+    postnet_args:
+      input_channels: 80
+      dim: 256
+      mlp_ratio: 3.0
+      kernel_size: 7
+      dilation: 1
+      norm: "weight_norm"
+      causal: true
+      pad_mode: "constant"
+      layers: 3
+      layer_scale_init_value: 1e-6
+    frame_synthesizer_args:
+      d_model: 512
+      num_heads: 8
+      causal: true
+      layer_scale: 0.01
+      context: 100
+      right_context: 0
+      conv_layout: true
+      max_period: 10000
+      gating: "none"
+      norm: "layer_norm"
+      positional_embedding: "rope"
+      dim_feedforward: 2048
+      input_dimension: 512
+      output_dimension: 80
+      timbre_cond_dim: 192
+      timbre_dimension: 512
+      b1_layers: 3
+      b2_layers: 3
+      b3_layers: 2
+    vocoder_feature_args:
+      sample_rate: 16000
+      n_fft: 1024
+      win_length: 1024
+      hop_length: 320
+      n_mels: 80
+      f_min: 0.0
+      f_max: null
+      causal: true
+      pad_mode: "constant"
+    lambdas:
+      mel_fine_loss: 10.0
+      mel_coarse_loss: 2.0
+      adv_Gx_loss: 1.0
+      adv_Gx_feat_loss: 25.0
+      speaker_recon_loss: 30.0
+      speaker_vc_loss: 30.0
+      contrastive_loss: 10.0
+    learning_rate: 0.0001
+    lr_betas: [0.8, 0.99]
+    lr_sch_gamma: 0.999996
+    encoder_path: checkpoints/mimi_pasrv2_withquant_la4.ckpt
+    vocoder_path: checkpoints/mimivocoder.ckpt
+    gan_decoder_path: null
+trainer:
+  # Train, Validate, Test and Predict
+  # Device https://lightning.ai/docs/pytorch/stable/common/trainer.html#accelerator
+  accelerator: gpu # "cpu", "gpu", "tpu", "ipu", "auto"
+  devices: [0,1,2] # "2," for device id 2
+  num_nodes: 1 # https://lightning.ai/docs/pytorch/stable/common/trainer.html#num-nodes
+  max_epochs: 100
+  strategy: ddp_find_unused_parameters_true
